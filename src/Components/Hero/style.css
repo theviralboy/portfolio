@@ -1,0 +1,123 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: #101010;
+  width: 100vw;
+  background-image: url("https://sahilverma.ml/assets/images/bg/bg-image.jpg") !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgb(14, 21, 37);
+  background: linear-gradient(
+    0deg,
+    rgba(14, 21, 37, 1) 0%,
+    rgba(14, 21, 37, 0.5) 100%
+  );
+}
+
+.hero .inner-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+.hero .inner-content .hero-inner {
+  width: 100%;
+  padding: 0 60px;
+  max-width: 1300px;
+}
+
+.hero .inner-content .hero-inner > span {
+  color: #1f1f25;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: block;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hero-inner h1,
+.hero-inner h2 {
+  font-size: 58px;
+  color: #fff;
+  line-height: 75px;
+}
+
+.Typewriter {
+  display: inline;
+  color: #fd4900;
+}
+
+.Typewriter__cursor {
+  margin-left: 10px !important;
+  font-weight: 100;
+  color: #fff;
+}
+
+.hero-inner .contact-me-btn {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 30px;
+  padding: 16px 40px;
+  border-radius: 500px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  background-size: 152% 100%;
+  background: transparent;
+  border: 2px solid #ffffff33;
+}
+
+.hero-inner .contact-me-btn:hover {
+  background-color: #fd4900;
+  transform: scale(1.05);
+  color: #fff;
+}
+
+@media (max-width: 800px) {
+  .hero .inner-content .hero-inner {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    align-items: center;
+    text-align: center;
+  }
+  .hero-inner h1,
+  .hero-inner h2 {
+    width: 100%;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 70px;
+  }
+  .hero-inner .contact-me-btn {
+    padding: 10px 40px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  .hero-inner h1,
+  .hero-inner h2 {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 50px;
+  }
+}

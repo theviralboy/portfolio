@@ -1,0 +1,266 @@
+/* Start Contact Area */
+.contact-area {
+  padding-bottom: 80px;
+}
+
+.contact-area .thumbnail {
+  margin-bottom: 30px;
+  width: 100%;
+  overflow: hidden;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.contact-area .thumbnail img {
+  height: auto !important;
+  box-shadow: 0 25px 65px rgb(0 0 0 / 10%);
+}
+
+.contact-area .contact-info {
+  margin-bottom: 30px;
+}
+
+.contact-area .contact-info span {
+  color: rgba(198, 201, 216, 0.75);
+  display: inline-block;
+  font-size: 14px;
+}
+
+#contact-form.inactive {
+  position: relative;
+}
+
+#contact-form.inactive::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(14, 21, 37, 0.7);
+  z-index: 1;
+}
+
+.form-wrapper {
+  margin-bottom: 30px;
+}
+
+.contact-area .contact-info .link {
+  position: relative;
+  color: rgba(198, 201, 216, 0.75);
+  font-weight: 700;
+  font-size: 17px;
+  display: inline-block;
+  margin-left: 18px;
+  transition: 0.3s;
+}
+
+.contact-area .contact-info .contact-item .link::after {
+  position: absolute;
+  content: "";
+  left: 0%;
+  bottom: -2px;
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(
+    120deg,
+    #1c99fe 20.69%,
+    #7644ff 50.19%,
+    #fd4766 79.69%
+  );
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.contact-area .contact-info .link:hover {
+  color: #fd4900;
+}
+
+.contact-area .contact-info:hover .link::after {
+  width: 100%;
+}
+
+#alert-msg.alert {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  height: 50px;
+  font-weight: 400;
+  border-width: 2px;
+}
+
+.contact-form .flex {
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 992px) {
+  .contact-form .flex {
+    flex-direction: row;
+  }
+
+  .contact-form .col-lg-6 {
+    flex: 0.5;
+  }
+}
+
+.contact-form .loading {
+  display: none;
+  margin-bottom: 20px;
+}
+
+.contact-form .loading.active {
+  display: block;
+}
+
+.contact-form .loading-bar {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  background-color: #c6c9d8;
+  border-radius: 50px;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.contact-form .loading-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: #fd4766;
+  background: linear-gradient(
+    120deg,
+    #1c99fe 20.69%,
+    #7644ff 50.19%,
+    #fd4766 79.69%
+  );
+  border-radius: 50px;
+  animation: loading infinite ease 4s;
+}
+
+@keyframes loading {
+  0% {
+    left: -50%;
+    width: 10%;
+  }
+  100% {
+    left: 100%;
+    width: 100%;
+  }
+}
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  padding: 0 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  height: 50px;
+  line-height: 46px;
+  margin-bottom: 20px;
+  outline: none;
+  color: rgba(198, 201, 216, 0.75);
+  font-size: 15px;
+  letter-spacing: 0.1px;
+  background-color: transparent !important;
+}
+
+.contact-form textarea {
+  height: 120px;
+}
+
+.contact-form button {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 16px 40px;
+  border-radius: 500px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  background-size: 152% 100%;
+  cursor: pointer;
+  background: #fd4900;
+  border: 2px solid #fd4900;
+}
+
+.contact-form button:hover {
+  background-color: transparent;
+}
+
+.contact-form input:focus,
+.contact-form input:active,
+.contact-form button:focus,
+.contact-form button:active,
+.contact-form select:focus,
+.contact-form select:active,
+.contact-form textarea:focus,
+.contact-form textarea:active {
+  outline: none;
+  border-color: #fd4900;
+}
+
+@media (max-width: 768px) {
+  .preloader img.loader-logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .preloader .loading-bar {
+    width: 70px;
+  }
+
+  .slider-wrapper .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .slider-wrapper .personal-project-slider .inner {
+    width: 100%;
+  }
+
+  .section-title h2.title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    line-height: 30px;
+  }
+
+  .slide h1,
+  .slide h2 {
+    font-size: 30px !important;
+    line-height: 50px !important;
+  }
+
+  .contact-area .contact-info span {
+    font-size: 14px;
+  }
+
+  .contact-area .contact-info .link {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  .contact-form button.btn-default {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+
+  .footer ul.social-share.rn-lg-size li a {
+    height: 45px;
+    width: 45px;
+    font-size: 16px;
+  }
+
+  .back-to-top {
+    height: 40px;
+    width: 40px;
+  }
+
+  .back-to-top svg {
+    height: 20px;
+  }
+}
