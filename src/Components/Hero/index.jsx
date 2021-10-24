@@ -5,6 +5,9 @@ import "./style.css";
 //importing typewriter-effect
 import Typewriter from "typewriter-effect";
 
+// importing react router dom
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
     <section className="hero">
@@ -27,9 +30,9 @@ const Hero = () => {
           </h1>
           <h2>from India.</h2>
           <div className="slide-btn">
-            <a className="contact-me-btn" href="#contact">
+            <Link className="contact-me-btn" to="/contact">
               Contact Me
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -11,11 +11,9 @@ import CloseBtn from "./CloseBtn";
 import MenuBtn from "./MenuBtn";
 const NavItem = ({ title, route }) => {
   return (
-    <li className="nav-item">
-      <NavLink to={route} activeClassName="active" className="nav-link">
-        {title}
-      </NavLink>
-    </li>
+    <NavLink to={route} activeClassName="active" className="nav-link">
+      {title}
+    </NavLink>
   );
 };
 
@@ -51,7 +49,7 @@ const Header = () => {
   const [yValue, setYValue] = useState(0);
   window.onscroll = () => setYValue(window.scrollY);
   return (
-    <header className={`header ${yValue > 100 ? "sticky" : ""}`}>
+    <header className={`header ${yValue > 90 ? "sticky" : ""}`}>
       <div className="header-wrapper max-width">
         <div className="header-left">
           <div className="logo">
@@ -66,11 +64,9 @@ const Header = () => {
             <ul className="nav-list">
               {NavData.map((item) => {
                 return (
-                  <NavItem
-                    key={item.id}
-                    title={item.title}
-                    route={item.route}
-                  />
+                  <li className="nav-item" key={item.id}>
+                    <NavItem title={item.title} route={item.route} />
+                  </li>
                 );
               })}
             </ul>
@@ -107,7 +103,13 @@ const Header = () => {
           <ul className="nav-menu">
             {NavData.map((item) => {
               return (
-                <NavItem key={item.id} title={item.title} route={item.route} />
+                <li
+                  key={item.id}
+                  className="nav-item"
+                  onClick={() => setNavOpen(false)}
+                >
+                  <NavItem title={item.title} route={item.route} />
+                </li>
               );
             })}
           </ul>

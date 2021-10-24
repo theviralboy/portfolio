@@ -1,0 +1,94 @@
+.project-area {
+  color: #fff;
+}
+
+.project-image {
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.project-image img {
+  border-radius: 10px;
+}
+
+.project-image .open {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  height: 50px;
+  width: 50px;
+  font-size: 18px;
+  background-color: #fd4900;
+  color: #000;
+  border-radius: 10px 0 10px;
+}
+
+.project-name {
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  color: rgba(198, 201, 216, 0.75);
+}
+
+.project-stack {
+  margin: 50px 0;
+}
+
+@media (max-width: 600px) {
+  .project-stack {
+    margin: 20px 0;
+  }
+}
+
+.project-stack h3 {
+  margin-right: 10px;
+}
+
+.stack-list .stack-item {
+  display: inline;
+  background-color: #fd4900;
+  border: 1px solid #fd4900;
+  color: #fff;
+  font-weight: 500;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+}
+
+.stack-item:hover {
+  border: 1px solid #fd4900;
+  color: #fd4900;
+  background-color: transparent;
+}
+
+a.project-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: rgba(198, 201, 216, 0.75);
+  border: 2px #fd4900 solid;
+  margin-right: 15px;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+}
+
+a.project-btn i {
+  margin-right: 10px;
+  font-size: 22px;
+  color: #fd4900;
+  transition: all 0.2s ease;
+}
+
+a.project-btn:hover {
+  background-color: #fd4900;
+}
+
+a.project-btn:hover i,
+a.project-btn:hover {
+  color: #000;
+}

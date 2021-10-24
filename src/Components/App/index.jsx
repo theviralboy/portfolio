@@ -4,30 +4,34 @@ import React from "react";
 import "./style.css";
 
 // importing react router dom
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// importing componenets
+// importing components
 import Header from "../Header";
-import Hero from "../Hero";
-// import About from "../About";
-import Contact from "../Contact";
 import Footer from "../Footer";
-import Projects from "../Projects";
+
+// importing pages
+import Home from "../../Pages/Home";
+import About from "../../Pages/About";
+import Skills from "../../Pages/Skills";
+import Projects from "../../Pages/Projects";
+import Project from "../../Pages/Project";
+import Contact from "../../Pages/Contact";
+import NotFound from "../../Pages/NotFound";
 
 const App = () => {
   return (
     <Router>
-      {/* about */}
       <Header />
-      {/* <Switch> */}
-      {/* hero */}
-      <Hero />
-      {/* about */}
-      {/* <About /> */}
-      {/* projects */}
-      <Projects />
-      {/* </Switch> */}
-      <Contact />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" exact component={About} />
+        <Route path="/skills" exact component={Skills} />
+        <Route path="/projects" exact component={Projects} />
+        <Route path="/project/:id" exact component={Project} />
+        <Route path="/contact" exact component={Contact} />
+        <Route component={NotFound} />
+      </Switch>
       {/* footer */}
       <Footer />
     </Router>

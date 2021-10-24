@@ -1,3 +1,30 @@
+.project-area {
+  padding-bottom: 10px;
+  border-radius: 10px 10px 0 0;
+  transform: translateY(-20px);
+  background: #0e1525;
+}
+
 .projects-inner {
   margin: 30px 0;
+}
+
+.more-project-btn {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 40px;
+  border-radius: 500px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background-size: 152% 100%;
+  cursor: pointer;
+  background: #fd4900;
+  border: 2px solid #fd4900;
+}
+
+.more-project-btn:hover {
+  background-color: transparent;
 }

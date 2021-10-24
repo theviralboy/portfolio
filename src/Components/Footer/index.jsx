@@ -10,12 +10,12 @@ import { SocialMedia } from "../Header";
 const Footer = () => {
   const date = new Date();
   return (
-    <div className="footer">
+    <footer className="footer-area">
       <div className="wrapper">
         <div className="row flex">
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <div className="inner">
-              <div className="logo justify-center">
+              <div className="logo ">
                 <Link to="/">
                   <img
                     src="https://sahilverma.ml/assets/images/logo-light.png"
@@ -35,7 +35,13 @@ const Footer = () => {
               <div className="text text-center">
                 <p>
                   Copyright {` ${date.getFullYear()} `}
-                  <a href="https://instagram.com/sahilverma.dev">Sahil Verma</a>
+                  <a
+                    href="https://instagram.com/sahilverma.dev"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Sahil Verma
+                  </a>
                   . All Rights Reserved.
                 </p>
               </div>
@@ -43,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

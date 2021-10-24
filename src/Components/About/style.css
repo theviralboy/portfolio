@@ -1,3 +1,10 @@
-.about .section-title {
-  text-align: center;
+.about-area {
+  padding-bottom: 20px;
+  border-radius: 10px 10px 0 0;
+  transform: translateY(-10px);
+  background: #141e35;
+}
+
+.about-area .thumbnail img {
+  height: auto;
 }

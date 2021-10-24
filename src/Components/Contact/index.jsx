@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 // importing style
 import "./style.css";
 
+// importing firebase
+import { firestore } from "../../Firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+
+const LoadingBar = () => {
+  return (
+    <div className="loading">
+      <div className="loading-bar">
+        <div className="loading-inner"></div>
+      </div>
+    </div>
+  );
+};
+
 const Contact = () => {
+  const contactRef = collection(firestore, "contact");
+  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [formActive, setFormActive] = useState(true);
+
+  // alerts popups
+  const [alertMsg, setAlertMsg] = useState("");
+  const [alertClass, setAlertClass] = useState("");
   return (
     <section className="contact-area">
       <div className="contact-form">
@@ -26,35 +50,83 @@ const Contact = () => {
                 </div>
               </div>
               <div className="form-wrapper">
+                {formActive ? "" : <LoadingBar />}
                 <form
                   id="contact-form"
+                  className={formActive ? "" : "inactive"}
                   onSubmit={(e) => {
                     e.preventDefault();
+                    if (
+                      name !== "" &&
+                      title !== "" &&
+                      email !== "" &&
+                      message !== ""
+                    ) {
+                      setFormActive(false);
+
+                      addDoc(contactRef, { name, title, email, message })
+                        .then((res) => res.json)
+                        .then((data) => {
+                          setFormActive(true);
+                          setAlertClass("success");
+                          setAlertMsg("Thanks for contacting me.");
+                          setName("");
+                          setTitle("");
+                          setEmail("");
+                          setMessage("");
+                        })
+                        .catch((err) => {
+                          console.log("ERROR", err);
+                          setFormActive(true);
+                          setAlertClass("danger");
+                          setAlertMsg("Failed to contact! Try again.");
+                        });
+                    }
                   }}
                 >
-                  <div className="loading">
-                    <div className="loading-bar">
-                      <div className="loading-inner"></div>
+                  {alertMsg !== "" ? (
+                    <div id="alert-msg" className={`alert alert-${alertClass}`}>
+                      {alertMsg}
                     </div>
-                  </div>
-                  <div id="alert-msg"></div>
-                  <input type="text" placeholder="Your Name" />
-                  <input type="text" placeholder="Message Titile" />
-                  <input type="email" placeholder="Your Email" />
+                  ) : (
+                    ""
+                  )}
+
+                  <input
+                    type="text"
+                    onChange={({ target }) => setName(target.value)}
+                    value={name}
+                    placeholder="Your Name"
+                  />
+                  <input
+                    type="text"
+                    onChange={({ target }) => setTitle(target.value)}
+                    value={title}
+                    placeholder="Message Title"
+                  />
+                  <input
+                    type="email"
+                    onChange={({ target }) => setEmail(target.value)}
+                    value={email}
+                    placeholder="Your Email"
+                  />
                   <textarea
-                    data-aos="fade-right"
-                    name="contact-message"
-                    id="contact-message"
+                    onChange={({ target }) => setMessage(target.value)}
+                    value={message}
                     placeholder="Your Message"
-                    className="aos-init aos-animate"
                   ></textarea>
                   <div className="form-submit">
                     <button
-                      data-aos="fade-right"
-                      name="submit"
                       type="submit"
-                      id="submit"
-                      className="btn-default aos-init aos-animate"
+                      className="btn-default"
+                      disabled={
+                        name !== "" &&
+                        title !== "" &&
+                        email !== "" &&
+                        message !== ""
+                          ? false
+                          : true
+                      }
                     >
                       Submit Now
                     </button>
@@ -62,11 +134,8 @@ const Contact = () => {
                 </form>
               </div>
             </div>
-            <div className="col-lg-6 order-1 order-lg-2">
-              <div
-                className="thumbnail aos-init aos-animate"
-                data-aos="fade-left"
-              >
+            <div className="col-lg-6">
+              <div className="thumbnail ">
                 <img
                   src="https://sahilverma.ml/assets/images/contact.jpg"
                   alt="Sahil Verma"

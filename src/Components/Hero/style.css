@@ -3,7 +3,7 @@
   min-height: 100vh;
   background-color: #101010;
   width: 100vw;
-  background-image: url("https://sahilverma.ml/assets/images/bg/bg-image.jpg") !important;
+  background-image: url("https://follio-react.wpocean.com/static/media/slide-3.c79640fb.jpg") !important;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +19,7 @@
   background: rgb(14, 21, 37);
   background: linear-gradient(
     0deg,
-    rgba(14, 21, 37, 1) 0%,
+    rgb(19, 30, 52) 0%,
     rgba(14, 21, 37, 0.5) 100%
   );
 }
