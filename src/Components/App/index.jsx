@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // importing style
 import "./style.css";
@@ -18,8 +18,14 @@ import Projects from "../../Pages/Projects";
 import Project from "../../Pages/Project";
 import Contact from "../../Pages/Contact";
 import NotFound from "../../Pages/NotFound";
+import TopIcon from "./TopIcon";
 
 const App = () => {
+  const [yValue, setYValue] = useState(0);
+  window.onscroll = () => {
+    console.log(yValue);
+    setYValue(window.scrollY);
+  };
   return (
     <Router>
       <Header />
@@ -33,6 +39,15 @@ const App = () => {
         <Route component={NotFound} />
       </Switch>
       {/* footer */}
+      <div
+        className={`back-to-top ${yValue > 1000 ? "visible" : "hello"}`}
+        onClick={() => {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }}
+      >
+        <TopIcon />
+      </div>
       <Footer />
     </Router>
   );

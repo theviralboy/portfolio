@@ -11,7 +11,7 @@ import CloseBtn from "./CloseBtn";
 import MenuBtn from "./MenuBtn";
 const NavItem = ({ title, route }) => {
   return (
-    <NavLink to={route} activeClassName="active" className="nav-link">
+    <NavLink to={route} exact activeClassName="active" className="nav-link">
       {title}
     </NavLink>
   );

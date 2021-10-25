@@ -1,6 +1,5 @@
-import React /*, { useEffect, useState }*/ from "react";
+import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import projectData from "./projectsData";
 
 // importing react router dom
 import { Link } from "react-router-dom";
@@ -9,20 +8,17 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 // imoprting firebase
-// import { firestore } from "../../Firebase/config";
-// import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../../Firebase/config";
+import { collection, getDocs } from "firebase/firestore";
 
 const Projects = () => {
-  // const [data, setData] = useState([]);
-  // const dataRef = collection(firestore, "test");
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     let name = await getDocs(dataRef);
-  //     setData(name.docs.map((doc) => ({ id: doc.id, ...doc.data().name })));
-  //     console.log(data);
-  //   };
-  //   getData();
-  // }, []);
+  const [projects, setProjects] = useState([]);
+  const dataRef = collection(firestore, "projects");
+  getDocs(dataRef)
+    .then((data) => {
+      setProjects(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    })
+    .catch((err) => console.log(err));
   return (
     <section className="project-area">
       <div className="container">
@@ -41,7 +37,7 @@ const Projects = () => {
         <div className="projects-inner">
           <div className="container">
             <div className="row">
-              {projectData.map((project) => {
+              {projects?.map((project) => {
                 return (
                   <div
                     className="col-lg-4 col-md-6 col-sm-6 col-12"

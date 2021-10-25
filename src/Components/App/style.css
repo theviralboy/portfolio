@@ -678,6 +678,45 @@ section {
   color: rgba(198, 201, 216, 0.75);
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: -150px;
+  height: 50px;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #fd4900;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: none;
+  transform: rotate(45deg);
+  transition: all 0.4s ease;
+  opacity: 0;
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: rotate(0deg);
+  right: 20px;
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  border: 2px solid #fd4900;
+  background-color: transparent;
+  color: #fd4900;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    height: 40px;
+    width: 40px;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-title h2.title {
     font-size: 40px;

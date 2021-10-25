@@ -35,7 +35,7 @@ const projectData = [
   {
     Id: 4,
     Name: "Facebook Clone",
-    Logo: "http://assets.stickpng.com/thumbs/584ac2d03ac3a570f94a666d.png",
+    Logo: "https://express-images.franklymedia.com/6616/sites/268/2021/07/14220435/facebook-icon-2.png",
     Image:
       "https://reactjsexample.com/content/images/2021/07/Facebook-Clone-with-ReactJS.jpg",
     Desc: "This is a Instagram Clone",
