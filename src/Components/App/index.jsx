@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
 // importing style
 import "./style.css";
 
 // importing react router dom
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  // useLocation,
+} from "react-router-dom";
+
+// importing framer motion
+import { AnimatePresence } from "framer-motion";
 
 // importing components
 import Header from "../Header";
@@ -18,36 +26,24 @@ import Projects from "../../Pages/Projects";
 import Project from "../../Pages/Project";
 import Contact from "../../Pages/Contact";
 import NotFound from "../../Pages/NotFound";
-import TopIcon from "./TopIcon";
 
 const App = () => {
-  const [yValue, setYValue] = useState(0);
-  window.onscroll = () => {
-    console.log(yValue);
-    setYValue(window.scrollY);
-  };
+  // const loc = useLocation();
   return (
     <Router>
       <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" exact component={About} />
-        <Route path="/skills" exact component={Skills} />
-        <Route path="/projects" exact component={Projects} />
-        <Route path="/project/:id" exact component={Project} />
-        <Route path="/contact" exact component={Contact} />
-        <Route component={NotFound} />
-      </Switch>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route path="/skills" exact component={Skills} />
+          <Route path="/projects" exact component={Projects} />
+          <Route path="/project/:id" exact component={Project} />
+          <Route path="/contact" exact component={Contact} />
+          <Route component={NotFound} />
+        </Switch>
+      </AnimatePresence>
       {/* footer */}
-      <div
-        className={`back-to-top ${yValue > 1000 ? "visible" : "hello"}`}
-        onClick={() => {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }}
-      >
-        <TopIcon />
-      </div>
       <Footer />
     </Router>
   );

@@ -9,6 +9,8 @@ import { SocialMediaData } from "./SocialMediaData";
 // importing icons
 import CloseBtn from "./CloseBtn";
 import MenuBtn from "./MenuBtn";
+import TopIcon from "./TopIcon";
+
 const NavItem = ({ title, route }) => {
   return (
     <NavLink to={route} exact activeClassName="active" className="nav-link">
@@ -49,78 +51,90 @@ const Header = () => {
   const [yValue, setYValue] = useState(0);
   window.onscroll = () => setYValue(window.scrollY);
   return (
-    <header className={`header ${yValue > 90 ? "sticky" : ""}`}>
-      <div className="header-wrapper max-width">
-        <div className="header-left">
-          <div className="logo">
-            <Link to="/">
-              <img
-                src="https://sahilverma.ml/assets/images/logo.png"
-                alt="Sahil Verma"
-              />
-            </Link>
+    <>
+      <header className={`header ${yValue > 80 ? "sticky" : ""}`}>
+        <div className="header-wrapper max-width">
+          <div className="header-left">
+            <div className="logo">
+              <Link to="/">
+                <img
+                  src="https://sahilverma.ml/assets/images/logo.png"
+                  alt="Sahil Verma"
+                />
+              </Link>
+            </div>
+            <nav className="main-nav">
+              <ul className="nav-list">
+                {NavData.map((item) => {
+                  return (
+                    <li className="nav-item" key={item.id}>
+                      <NavItem title={item.title} route={item.route} />
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
           </div>
-          <nav className="main-nav">
-            <ul className="nav-list">
+          <div className="header-right">
+            <div className="social-media">
+              <SocialMedia />
+            </div>
+            <div className="menu-btn" onClick={(e) => setNavOpen(true)}>
+              <MenuBtn />
+            </div>
+          </div>
+        </div>
+        <div
+          className={`sidebar-bg ${navOpen ? "active" : ""}`}
+          onClick={() => setNavOpen(false)}
+        ></div>
+        <div className={`sidebar ${navOpen ? "open" : ""}`}>
+          <div className="sidebar-top">
+            <div className="logo">
+              <Link to="/">
+                <img
+                  src="https://sahilverma.ml/assets/images/logo.png"
+                  alt="Sahil Verma"
+                />
+              </Link>
+            </div>
+            <div className="close-btn" onClick={() => setNavOpen(false)}>
+              <CloseBtn />
+            </div>
+          </div>
+          <div className="navbar-list">
+            <ul className="nav-menu">
               {NavData.map((item) => {
                 return (
-                  <li className="nav-item" key={item.id}>
+                  <li
+                    key={item.id}
+                    className="nav-item"
+                    onClick={() => setNavOpen(false)}
+                  >
                     <NavItem title={item.title} route={item.route} />
                   </li>
                 );
               })}
             </ul>
-          </nav>
-        </div>
-        <div className="header-right">
-          <div className="social-media">
-            <SocialMedia />
           </div>
-          <div className="menu-btn" onClick={(e) => setNavOpen(true)}>
-            <MenuBtn />
+          <div className="sidebar-bottom">
+            <div className="social-media">
+              <SocialMedia />
+            </div>
           </div>
         </div>
-      </div>
+      </header>
+
       <div
-        className={`sidebar-bg ${navOpen ? "active" : ""}`}
-        onClick={() => setNavOpen(false)}
-      ></div>
-      <div className={`sidebar ${navOpen ? "open" : ""}`}>
-        <div className="sidebar-top">
-          <div className="logo">
-            <Link to="/">
-              <img
-                src="https://sahilverma.ml/assets/images/logo.png"
-                alt="Sahil Verma"
-              />
-            </Link>
-          </div>
-          <div className="close-btn" onClick={() => setNavOpen(false)}>
-            <CloseBtn />
-          </div>
-        </div>
-        <div className="navbar-list">
-          <ul className="nav-menu">
-            {NavData.map((item) => {
-              return (
-                <li
-                  key={item.id}
-                  className="nav-item"
-                  onClick={() => setNavOpen(false)}
-                >
-                  <NavItem title={item.title} route={item.route} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="sidebar-bottom">
-          <div className="social-media">
-            <SocialMedia />
-          </div>
-        </div>
+        className={`back-to-top ${yValue > 1000 ? "visible" : ""}`}
+        onClick={() => {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }}
+      >
+        <TopIcon />
       </div>
-    </header>
+    </>
   );
 };
 

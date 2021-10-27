@@ -11,7 +11,7 @@ const Footer = () => {
   const date = new Date();
   return (
     <footer className="footer-area">
-      <div className="wrapper">
+      <div className="wrapper max-width">
         <div className="row flex">
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <div className="inner">

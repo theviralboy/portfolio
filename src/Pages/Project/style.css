@@ -10,6 +10,7 @@
 
 .project-image img {
   border-radius: 10px;
+  width: 100%;
 }
 
 .project-image .open {
@@ -24,6 +25,11 @@
   background-color: #fd4900;
   color: #000;
   border-radius: 10px 0 10px;
+  transition: all 0.2s ease;
+}
+
+.project-image .open:hover {
+  color: #fff;
 }
 
 .project-name {
@@ -88,6 +94,9 @@ a.project-btn:hover {
 }
 
 @media (max-width: 600px) {
+  .project-image img {
+    min-height: 60vh;
+  }
   .project-stack {
     margin: 20px 0;
   }
