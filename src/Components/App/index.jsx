@@ -11,9 +11,6 @@ import {
   // useLocation,
 } from "react-router-dom";
 
-// importing framer motion
-import { AnimatePresence } from "framer-motion";
-
 // importing components
 import Header from "../Header";
 import Footer from "../Footer";
@@ -32,17 +29,15 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <AnimatePresence exitBeforeEnter initial={false}>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={About} />
-          <Route path="/skills" exact component={Skills} />
-          <Route path="/projects" exact component={Projects} />
-          <Route path="/project/:id" exact component={Project} />
-          <Route path="/contact" exact component={Contact} />
-          <Route component={NotFound} />
-        </Switch>
-      </AnimatePresence>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" exact component={About} />
+        <Route path="/skills" exact component={Skills} />
+        <Route path="/projects" exact component={Projects} />
+        <Route path="/project/:id" exact component={Project} />
+        <Route path="/contact" exact component={Contact} />
+        <Route component={NotFound} />
+      </Switch>
       {/* footer */}
       <Footer />
     </Router>

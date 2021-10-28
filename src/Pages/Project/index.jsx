@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import "./style.css";
 
 // importing use params
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // importing firebase
 import { firestore } from "../../Firebase/config";
@@ -12,7 +12,7 @@ import { onSnapshot, doc } from "@firebase/firestore";
 
 const SingleProject = () => {
   const { id } = useParams();
-  const history = useHistory;
+  // const history = useHistory;
   const [project, setProject] = useState({});
   const [stack, setStack] = useState([]);
   const unsub = onSnapshot(doc(firestore, "projects", `${id}`), (doc) => {

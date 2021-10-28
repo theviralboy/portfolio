@@ -28,8 +28,7 @@ const Projects = () => {
               <span className="subtitle">My Complete project</span>
               <h2 className="title">My Latest Project</h2>
               <p className="description">
-                There are many variations of passages of Lorem Ipsum available,{" "}
-                <br /> but the majority have suffered alteration.
+                Have a look at my recently projects.
               </p>
             </div>
           </div>

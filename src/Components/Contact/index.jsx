@@ -7,6 +7,9 @@ import "./style.css";
 import { firestore } from "../../Firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 
+// importing image
+import image from "./contact.jpg";
+
 const LoadingBar = () => {
   return (
     <div className="loading">
@@ -36,13 +39,15 @@ const Contact = () => {
             <div className="col-lg-6">
               <div className="section-title">
                 <span className="subtitle">Let's Say Hi</span>
-                <h2 className="title">Hire Me.</h2>
+                <h2 className="title">Contact Me.</h2>
                 <div className="contact-info">
                   <div className="contact-item">
                     <span>Contact Email:</span>
                     <a
                       className="link"
                       href="mailto:sahilverma.webdev@gmail.com"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       sahilverma.webdev@gmail.com
                     </a>
@@ -136,10 +141,7 @@ const Contact = () => {
             </div>
             <div className="col-lg-6">
               <div className="thumbnail ">
-                <img
-                  src="https://sahilverma.ml/assets/images/contact.jpg"
-                  alt="Sahil Verma"
-                />
+                <img src={image} alt="Sahil Verma" />
               </div>
             </div>
           </div>

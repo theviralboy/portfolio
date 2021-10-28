@@ -1,6 +1,10 @@
 import React from "react";
+
 // importing style
 import "./style.css";
+
+// importing image
+import image from "./about.jpg";
 
 const About = () => {
   return (
@@ -13,11 +17,7 @@ const About = () => {
                 className="thumbnail aos-init aos-animate"
                 data-aos="fade-left"
               >
-                <img
-                  className="w-100"
-                  src="https://sahilverma.ml/assets/images/about.jpg"
-                  alt="About Images"
-                />
+                <img className="w-100" src={image} alt="About Images" />
               </div>
             </div>
             <div
@@ -29,9 +29,9 @@ const About = () => {
                   <span className="subtitle">My About Details</span>
                   <h2 className="title mb--20">About Me</h2>
                   <p className="description mt_dec--20">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered in some form, by
-                    injected humour.
+                    Hello, I am Sahil Verma. I am a frontend developer. I love
+                    to code, learning new stuff and improving my self as a
+                    developer and as a well as person.
                   </p>
                 </div>
               </div>
