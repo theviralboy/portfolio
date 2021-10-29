@@ -9,6 +9,7 @@ import ProjectCard from "../../Components/Projects/ProjectCard";
 // importing fireabse
 import { firestore } from "../../Firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+import Loading from "../Loading";
 
 const SingleProjects = () => {
   const [projects, setProjects] = useState([]);
@@ -28,23 +29,27 @@ const SingleProjects = () => {
       <div className="projects-inner">
         <div className="container">
           <div className="row">
-            {projects?.map((project) => {
-              return (
-                <div
-                  className="col-lg-4 col-md-6 col-sm-6 col-12"
-                  key={project.Id}
-                >
-                  <Link to={`/project/${project.Id}`}>
-                    <ProjectCard
-                      image={project.Image}
-                      name={project.Name}
-                      logo={project.Logo}
-                      tag={project.Stack[0]}
-                    />
-                  </Link>
-                </div>
-              );
-            })}
+            {projects !== [] ? (
+              projects?.map((project) => {
+                return (
+                  <div
+                    className="col-lg-4 col-md-6 col-sm-6 col-12"
+                    key={project.Id}
+                  >
+                    <Link to={`/project/${project.Id}`}>
+                      <ProjectCard
+                        image={project.Image}
+                        name={project.Name}
+                        logo={project.Logo}
+                        tag={project.Stack[0]}
+                      />
+                    </Link>
+                  </div>
+                );
+              })
+            ) : (
+              <Loading />
+            )}
           </div>
         </div>
       </div>

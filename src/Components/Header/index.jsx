@@ -67,7 +67,14 @@ const Header = () => {
               <ul className="nav-list">
                 {NavData.map((item) => {
                   return (
-                    <li className="nav-item" key={item.id}>
+                    <li
+                      className="nav-item"
+                      key={item.id}
+                      onClick={() => {
+                        document.body.scrollTop = 0;
+                        document.documentElement.scrollTop = 0;
+                      }}
+                    >
                       <NavItem title={item.title} route={item.route} />
                     </li>
                   );
@@ -109,7 +116,11 @@ const Header = () => {
                   <li
                     key={item.id}
                     className="nav-item"
-                    onClick={() => setNavOpen(false)}
+                    onClick={() => {
+                      setNavOpen(false);
+                      document.body.scrollTop = 0;
+                      document.documentElement.scrollTop = 0;
+                    }}
                   >
                     <NavItem title={item.title} route={item.route} />
                   </li>
