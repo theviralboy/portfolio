@@ -6,7 +6,7 @@ import SkillData from "./SkillsData";
 // importing styles
 import "./style.css";
 
-const SkillCard = ({ icon, name }) => {
+export const SkillCard = ({ icon, name }) => {
   return (
     <div className="skill-card">
       <img src={icon} alt={name} className="skill-icon" />

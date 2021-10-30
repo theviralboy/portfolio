@@ -8,27 +8,21 @@ import image from "./about.jpg";
 
 const About = () => {
   return (
-    <section className="about-area ptb--120  ">
+    <section className="about-area ">
       <div className="about-wrapper">
         <div className="container">
-          <div className="row row--35">
+          <div className="row">
             <div className="col-lg-5">
-              <div
-                className="thumbnail aos-init aos-animate"
-                data-aos="fade-left"
-              >
+              <div className="thumbnail">
                 <img className="w-100" src={image} alt="About Images" />
               </div>
             </div>
-            <div
-              className="col-lg-7 aos-init aos-animate"
-              data-aos="fade-right"
-            >
+            <div className="col-lg-7">
               <div className="about-inner inner">
                 <div className="section-title">
                   <span className="subtitle">My About Details</span>
-                  <h2 className="title mb--20">About Me</h2>
-                  <p className="description mt_dec--20">
+                  <h2 className="title">About Me</h2>
+                  <p className="description ">
                     Hello, I am Sahil Verma. I am a frontend developer. I love
                     to code, learning new stuff and improving my self as a
                     developer and as a well as person.
